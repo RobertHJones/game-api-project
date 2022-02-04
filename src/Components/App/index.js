@@ -11,7 +11,7 @@ function App() {
       `https://www.cheapshark.com/api/1.0/games?title=${game}`
     );
     const data = await response.json();
-    setGameInfo(data.splice(0, 10));
+    setGameInfo(data[0]);
     console.log(data.splice(0, 10));
   }
 
@@ -20,9 +20,9 @@ function App() {
       <Heading />
       <Input onSubmit={fetchData} />
       <div>
-        <h2>{gameInfo[0].external}</h2>
-        <img src={gameInfo[0].thumb} alt="" />
-        <p>The current cheapest price is £{gameInfo[0].cheapest}</p>
+        <h2>{gameInfo.external}</h2>
+        <img src={gameInfo.thumb} alt="" />
+        <p>The current cheapest price is £{gameInfo.cheapest}</p>
       </div>
     </div>
   );
