@@ -5,6 +5,7 @@ import { useState } from "react";
 
 function App() {
   const [gameInfo, setGameInfo] = useState([]);
+  const [price, setPrice] = useState("");
 
   async function fetchData(game) {
     const response = await fetch(
@@ -13,6 +14,7 @@ function App() {
     const data = await response.json();
     setGameInfo(data[0]);
     console.log(data.splice(0, 10));
+    setPrice("The current cheapest price is £ ");
   }
 
   return (
@@ -22,7 +24,10 @@ function App() {
       <div>
         <h2>{gameInfo.external}</h2>
         <img src={gameInfo.thumb} alt="" />
-        <p>The current cheapest price is £{gameInfo.cheapest}</p>
+        <p>
+          {price}
+          {gameInfo.cheapest}
+        </p>
       </div>
     </div>
   );
