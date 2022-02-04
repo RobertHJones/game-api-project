@@ -1,0 +1,13 @@
+img {
+  height: 70px;
+  width: auto;
+  border: 3px solid black;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.game-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
