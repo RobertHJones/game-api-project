@@ -21,15 +21,6 @@ function App() {
       <Heading />
       <Input onSubmit={fetchData} />
       <Gamelist text={gameInfo} />
-
-      {/* <div>
-        <h2>{gameInfo.external}</h2>
-        <img src={gameInfo.thumb} alt="" />
-        <p>
-          {price}
-          {gameInfo.cheapest}
-        </p>
-      </div> */}
     </div>
   );
 }

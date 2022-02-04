@@ -2,9 +2,3 @@
   text-align: center;
   width: 100%;
 }
-
-.game-display {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
