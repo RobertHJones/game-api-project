@@ -55,7 +55,7 @@ export default function Gamelist({ text }) {
           </div>
         );
       })}
-      <div>
+      <div className="gameinfo">
         <h4>{gamePrice}</h4>
         <p>
           {title}
@@ -64,8 +64,10 @@ export default function Gamelist({ text }) {
         </p>
         <p>
           Click on the image to select your game and then click{" "}
-          <button onClick={getStore}>here</button> to unveil where to find this
-          deal. {store}
+          <button id="storebutton" onClick={getStore}>
+            here
+          </button>{" "}
+          to unveil where to find this deal. {store}
         </p>
       </div>
     </div>
