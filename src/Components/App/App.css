@@ -2,3 +2,9 @@
   text-align: center;
   width: 100%;
 }
+body {
+  background: linear-gradient(rgb(248, 246, 149), rgb(236, 182, 67));
+  background-repeat: no-repeat;
+  height: 100%;
+  padding-bottom: 67vh;
+}

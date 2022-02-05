@@ -1,6 +1,8 @@
 import React from "react";
 import "./index.css";
 import { useState } from "react";
+import "antd/dist/antd.css";
+import { Button } from "antd";
 
 export default function Gamelist({ text }) {
   const [gameProperties, setGameProperties] = useState("");
@@ -20,11 +22,11 @@ export default function Gamelist({ text }) {
     );
     const data = await response.json();
     const array = data.deals.splice(0, 5);
-    console.log(data.info.title);
+    console.log(array);
     setGameProperties(array);
     setGamePrice(`Retail price: £${gameProperties[0].retailPrice}`);
     setCheapestPrice(" is £" + gameProperties[0].price);
-    setSaving(` - you save ${Math.ceil(gameProperties[0].savings)}%.`);
+    setSaving(` - you save ${Math.round(gameProperties[0].savings)}%.`);
     setStoreID(array[0].storeID);
     setTitle("The current cheapest price for " + data.info.title);
     // console.log(storeID);
@@ -35,8 +37,14 @@ export default function Gamelist({ text }) {
     );
     const storeData = await storeResponse.json();
     const theStore = storeData[storeID - 1];
-    // console.log(theStore);
-    setStore(`Find this deal at ${theStore.storeName}.`);
+    // console.log(storeData);
+    setStore(
+      `Find this deal at ${theStore.storeName}. Alternatively you could try ${
+        storeData[storeID].storeName
+      } where it costs £${gameProperties[1].price} - a saving of ${Math.round(
+        gameProperties[1].savings
+      )}%.`
+    );
   }
 
   return (
@@ -64,9 +72,9 @@ export default function Gamelist({ text }) {
         </p>
         <p>
           Click on the image to select your game and then click{" "}
-          <button id="storebutton" onClick={getStore}>
+          <Button type="primary" id="storebutton" onClick={getStore}>
             here
-          </button>{" "}
+          </Button>{" "}
           to unveil where to find this deal. {store}
         </p>
       </div>

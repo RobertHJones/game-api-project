@@ -1,6 +1,8 @@
 import React from "react";
 import "./index.css";
 import { useState } from "react";
+import "antd/dist/antd.css";
+import { Button } from "antd";
 
 export default function Input({ onSubmit }) {
   const [game, setGame] = useState("");
@@ -23,7 +25,9 @@ export default function Input({ onSubmit }) {
         onChange={getValue}
         placeholder="Search for a game"
       ></input>
-      <button onClick={searchGames}>Find me a deal!</button>
+      <Button type="primary" onClick={searchGames}>
+        Find me a deal!
+      </Button>
     </form>
   );
 }
