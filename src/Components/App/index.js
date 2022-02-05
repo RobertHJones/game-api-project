@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <Heading />
       <Input onSubmit={fetchData} />
-      <Gamelist text={gameInfo} />
+      <Gamelist text={gameInfo} key={gameInfo.gameID} />
     </div>
   );
 }
