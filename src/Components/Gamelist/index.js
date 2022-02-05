@@ -22,11 +22,11 @@ export default function Gamelist({ text }) {
     const array = data.deals.splice(0, 5);
     console.log(data.info.title);
     setGameProperties(array);
-    setGamePrice(gameProperties[0].retailPrice);
-    setCheapestPrice(gameProperties[0].price);
-    setSaving(gameProperties[0].savings);
+    setGamePrice(`Retail price: £${gameProperties[0].retailPrice}`);
+    setCheapestPrice(" is £" + gameProperties[0].price);
+    setSaving(` - you save ${Math.ceil(gameProperties[0].savings)}%.`);
     setStoreID(array[0].storeID);
-    setTitle(data.info.title);
+    setTitle("The current cheapest price for " + data.info.title);
     // console.log(storeID);
   }
   async function getStore() {
@@ -36,7 +36,7 @@ export default function Gamelist({ text }) {
     const storeData = await storeResponse.json();
     const theStore = storeData[storeID - 1];
     // console.log(theStore);
-    setStore(theStore.storeName);
+    setStore(`Find this deal at ${theStore.storeName}.`);
   }
 
   return (
@@ -56,11 +56,16 @@ export default function Gamelist({ text }) {
         );
       })}
       <div>
-        <p>Retail price: £{gamePrice}</p>
+        <h4>{gamePrice}</h4>
         <p>
-          The current cheapest price for {title} is £{cheapestPrice} - you save{" "}
-          {Math.ceil(saving)}%. Click <button onClick={getStore}>here</button>{" "}
-          to unveil where to find this deal. {store}
+          {title}
+          {cheapestPrice}
+          {saving}
+        </p>
+        <p>
+          Click on the image to select your game and then click{" "}
+          <button onClick={getStore}>here</button> to unveil where to find this
+          deal. {store}
         </p>
       </div>
     </div>

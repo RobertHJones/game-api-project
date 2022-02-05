@@ -18,7 +18,11 @@ export default function Input({ onSubmit }) {
 
   return (
     <form>
-      <input onChange={getValue} placeholder="Search for a game"></input>
+      <input
+        className="gamesearch"
+        onChange={getValue}
+        placeholder="Search for a game"
+      ></input>
       <button onClick={searchGames}>Find me a deal!</button>
     </form>
   );
