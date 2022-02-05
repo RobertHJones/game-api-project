@@ -77,6 +77,7 @@ export default function Gamelist({ text }) {
           </Button>{" "}
           to unveil where to find this deal. {store}
         </p>
+        <p></p>
       </div>
     </div>
   );
