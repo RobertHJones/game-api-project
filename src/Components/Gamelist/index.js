@@ -29,6 +29,7 @@ export default function Gamelist({ text }) {
     setSaving(` - you save ${Math.round(array[0].savings)}%.`);
     setStoreID(array[0].storeID);
     setTitle("The current cheapest price for " + data.info.title);
+    setStore("");
     // console.log(storeID);
   }
   async function getStore() {
