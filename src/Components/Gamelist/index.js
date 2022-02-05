@@ -52,7 +52,7 @@ export default function Gamelist({ text }) {
       {text.map((item) => {
         return (
           <div>
-            <h3>{item.external}</h3>
+            <h3 className="title">{item.external}</h3>
             <img
               onClick={handleClick}
               src={item.thumb}
@@ -64,7 +64,7 @@ export default function Gamelist({ text }) {
         );
       })}
       <div className="gameinfo">
-        <h4>{gamePrice}</h4>
+        <h3 className="price">{gamePrice}</h3>
         <p>
           {title}
           {cheapestPrice}

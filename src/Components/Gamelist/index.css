@@ -18,6 +18,17 @@ img {
   font-size: 1.5rem;
 }
 
+.title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+.price {
+  text-decoration: line-through;
+  font-weight: bold;
+}
+
 /* #storebutton {
   height: 2rem;
   width: auto;
