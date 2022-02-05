@@ -24,9 +24,9 @@ export default function Gamelist({ text }) {
     const array = data.deals.splice(0, 5);
     console.log(array);
     setGameProperties(array);
-    setGamePrice(`Retail price: £${gameProperties[0].retailPrice}`);
-    setCheapestPrice(" is £" + gameProperties[0].price);
-    setSaving(` - you save ${Math.round(gameProperties[0].savings)}%.`);
+    setGamePrice(`Retail price: £${array[0].retailPrice}`);
+    setCheapestPrice(" is £" + array[0].price);
+    setSaving(` - you save ${Math.round(array[0].savings)}%.`);
     setStoreID(array[0].storeID);
     setTitle("The current cheapest price for " + data.info.title);
     // console.log(storeID);
