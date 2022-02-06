@@ -12,6 +12,10 @@ export default function Gamelist({ text }) {
   const [storeID, setStoreID] = useState("");
   const [store, setStore] = useState("");
   const [title, setTitle] = useState("");
+  const [link, setLink] = useState("");
+  const [link2, setLink2] = useState("");
+  const [storeLink, setStoreLink] = useState("");
+  const [storeLink2, setStoreLink2] = useState("");
 
   async function handleClick(e) {
     // console.log(e.target.id);
@@ -22,7 +26,7 @@ export default function Gamelist({ text }) {
     );
     const data = await response.json();
     const array = data.deals.splice(0, 5);
-    console.log(array);
+    console.log(array[0].dealID);
     setGameProperties(array);
     setGamePrice(`Retail price: £${array[0].retailPrice}`);
     setCheapestPrice(" is £" + array[0].price);
@@ -30,7 +34,11 @@ export default function Gamelist({ text }) {
     setStoreID(array[0].storeID);
     setTitle("The current cheapest price for " + data.info.title);
     setStore("");
-    // console.log(storeID);
+    setStoreLink("");
+    setStoreLink2("");
+    setLink(`https://www.cheapshark.com/redirect?dealID=${array[0].dealID}`);
+    setLink2(`https://www.cheapshark.com/redirect?dealID=${array[1].dealID}`);
+    console.log(link);
   }
   async function getStore() {
     const storeResponse = await fetch(
@@ -46,6 +54,8 @@ export default function Gamelist({ text }) {
         gameProperties[1].savings
       )}%.`
     );
+    setStoreLink(theStore.storeName + " deal");
+    setStoreLink2(storeData[storeID].storeName + " deal");
   }
 
   useEffect(() => {
@@ -54,6 +64,8 @@ export default function Gamelist({ text }) {
     setCheapestPrice("");
     setTitle("");
     setSaving("");
+    setStoreLink("");
+    setStoreLink2("");
   }, [text]);
 
   return (
@@ -87,6 +99,19 @@ export default function Gamelist({ text }) {
           to unveil where to find this deal.
         </p>
         <p>{store}</p>
+        <ul>
+          <li>
+            <a target="_blank" rel="noreferrer" href={link}>
+              {storeLink}
+            </a>
+          </li>
+          <li>
+            <a target="_blank" rel="noreferrer" href={link2}>
+              {" "}
+              {storeLink2}
+            </a>
+          </li>
+        </ul>
         <p></p>
       </div>
     </div>

@@ -35,3 +35,7 @@ img {
   font-size: 1.5rem;
   padding-bottom: 42px;
 }
+li {
+  list-style: none;
+  font-size: 1.8rem;
+}
