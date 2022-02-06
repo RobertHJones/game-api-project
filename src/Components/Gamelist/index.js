@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "antd/dist/antd.css";
 import { Button } from "antd";
 
@@ -47,6 +47,14 @@ export default function Gamelist({ text }) {
       )}%.`
     );
   }
+
+  useEffect(() => {
+    setStore("");
+    setGamePrice("");
+    setCheapestPrice("");
+    setTitle("");
+    setSaving("");
+  }, [text]);
 
   return (
     <div className="game-display">
