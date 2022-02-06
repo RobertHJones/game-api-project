@@ -15,7 +15,7 @@ img {
 .gameinfo {
   text-align: center;
   margin: 100px;
-  font-size: 1.5rem;
+  font-size: 2.2rem;
 }
 
 .title {
@@ -29,8 +29,9 @@ img {
   font-weight: bold;
 }
 
-/* #storebutton {
+#storebutton {
   height: 2rem;
   width: auto;
-  font-size: 1.4rem;
-} */
+  font-size: 1.5rem;
+  padding-bottom: 42px;
+}

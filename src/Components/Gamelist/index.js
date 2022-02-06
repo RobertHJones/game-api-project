@@ -84,8 +84,9 @@ export default function Gamelist({ text }) {
           <Button type="primary" id="storebutton" onClick={getStore}>
             here
           </Button>{" "}
-          to unveil where to find this deal. {store}
+          to unveil where to find this deal.
         </p>
+        <p>{store}</p>
         <p></p>
       </div>
     </div>
