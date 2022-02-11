@@ -23,10 +23,10 @@ function App() {
     <div className="App">
       {isAuthenticated ? (
         <main>
-          <Login />
           <Heading />
           <Input onSubmit={fetchData} />
           <Gamelist text={gameInfo} key={gameInfo.gameID} />
+          <Login />
         </main>
       ) : (
         <Login />
