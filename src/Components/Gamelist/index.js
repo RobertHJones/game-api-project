@@ -11,6 +11,7 @@ export default function Gamelist({ text }) {
   const [saving, setSaving] = useState("");
   const [storeID, setStoreID] = useState("");
   const [store, setStore] = useState("");
+  const [store2, setStore2] = useState("");
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
   const [link2, setLink2] = useState("");
@@ -26,7 +27,6 @@ export default function Gamelist({ text }) {
     );
     const data = await response.json();
     const array = data.deals.splice(0, 5);
-    console.log(array[0].dealID);
     setGameProperties(array);
     setGamePrice(`Retail price: £${array[0].retailPrice}`);
     setCheapestPrice(" is £" + array[0].price);
@@ -37,8 +37,9 @@ export default function Gamelist({ text }) {
     setStoreLink("");
     setStoreLink2("");
     setLink(`https://www.cheapshark.com/redirect?dealID=${array[0].dealID}`);
-    setLink2(`https://www.cheapshark.com/redirect?dealID=${array[1].dealID}`);
     console.log(link);
+    setLink2(`https://www.cheapshark.com/redirect?dealID=${array[1].dealID}`);
+    // console.log(array);
   }
   async function getStore() {
     const storeResponse = await fetch(
@@ -46,20 +47,25 @@ export default function Gamelist({ text }) {
     );
     const storeData = await storeResponse.json();
     const theStore = storeData[storeID - 1];
-    // console.log(storeData);
-    setStore(
-      `Find this deal at ${theStore.storeName}. Alternatively you could try ${
+    setStore(`Find this deal at ${theStore.storeName}:`);
+    // setStore(theStore);
+    setStoreLink(theStore.storeName + " deal");
+    setStore2(
+      `Alternatively you could try ${
         storeData[storeID].storeName
       } where it costs £${gameProperties[1].price} - a saving of ${Math.round(
         gameProperties[1].savings
-      )}%.`
+      )}%:`
     );
-    setStoreLink(theStore.storeName + " deal");
     setStoreLink2(storeData[storeID].storeName + " deal");
+    console.log(theStore.storeName);
+    console.log(link, "link");
+    console.log(storeLink, "store link");
   }
 
   useEffect(() => {
     setStore("");
+    setStore2("");
     setGamePrice("");
     setCheapestPrice("");
     setTitle("");
@@ -98,20 +104,33 @@ export default function Gamelist({ text }) {
           </Button>{" "}
           to unveil where to find this deal.
         </p>
-        <p>{store}</p>
-        <ul>
-          <li>
-            <a target="_blank" rel="noreferrer" href={link}>
-              {storeLink}
-            </a>
-          </li>
-          <li>
-            <a target="_blank" rel="noreferrer" href={link2}>
-              {" "}
-              {storeLink2}
-            </a>
-          </li>
-        </ul>
+        <div>
+          {/* {store.storeName === "" ? (
+            <p>
+              `Find this deal at ${store.storeName}. Alternatively you could try
+              ${store2.storeName} where it costs £$
+              {gameProperties[1].price} - a saving of $
+              {Math.round(gameProperties[1].savings)}%.`
+            </p>
+          ) : (
+            <p></p>
+          )} */}
+        </div>
+        <p>
+          {store}{" "}
+          <a target="_blank" rel="noreferrer" href={link}>
+            {storeLink}
+          </a>
+        </p>
+
+        <p>
+          {store2}
+          <a target="_blank" rel="noreferrer" href={link2}>
+            {" "}
+            {storeLink2}
+          </a>
+        </p>
+
         <p></p>
       </div>
     </div>

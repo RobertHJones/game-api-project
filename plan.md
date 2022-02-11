@@ -3,8 +3,7 @@
 Search by game to find the game you want and then select this to find all current deals on this game
 
 Style it
-Write proper Readme https://readme.so/
-make database of websites so I can have links to sites?
-Auth0
+Auth0 - nah
+Conditional render to make text disappear and to do if statement for if there's only one result in the array
 
 deployed to https://game-price-search.netlify.app/

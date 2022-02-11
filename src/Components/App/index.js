@@ -13,7 +13,7 @@ function App() {
     );
     const data = await response.json();
     setGameInfo(data.splice(0, 10));
-    console.log(data.splice(0, 10));
+    // console.log(data.splice(0, 10));
   }
 
   return (
