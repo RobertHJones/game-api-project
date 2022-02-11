@@ -3,9 +3,12 @@ import Heading from "../Heading";
 import Input from "../Input";
 import Gamelist from "../Gamelist";
 import { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import Login from "../Login";
 
 function App() {
   const [gameInfo, setGameInfo] = useState([]);
+  const { isAuthenticated } = useAuth0();
 
   async function fetchData(game) {
     const response = await fetch(
@@ -18,9 +21,16 @@ function App() {
 
   return (
     <div className="App">
-      <Heading />
-      <Input onSubmit={fetchData} />
-      <Gamelist text={gameInfo} key={gameInfo.gameID} />
+      {isAuthenticated ? (
+        <main>
+          <Login />
+          <Heading />
+          <Input onSubmit={fetchData} />
+          <Gamelist text={gameInfo} key={gameInfo.gameID} />
+        </main>
+      ) : (
+        <Login />
+      )}
     </div>
   );
 }

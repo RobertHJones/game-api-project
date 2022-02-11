@@ -1,0 +1,14 @@
+.loginPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 700px;
+  border-radius: 2px solid black;
+  flex-wrap: nowrap;
+  display: block;
+}
+.header {
+  font-size: 4rem;
+  font-family: trebuchet;
+  display: block;
+}
