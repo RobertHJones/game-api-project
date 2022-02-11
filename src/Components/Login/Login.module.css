@@ -2,13 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 700px;
+  padding: 400px;
   border-radius: 2px solid black;
   flex-wrap: nowrap;
   display: block;
 }
 .header {
   font-size: 4rem;
-  font-family: trebuchet;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   display: block;
+}
+
+.button {
+  transform: scale(2);
 }
