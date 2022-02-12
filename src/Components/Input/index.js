@@ -18,12 +18,19 @@ export default function Input({ onSubmit }) {
     onSubmit(game);
   }
 
+  function handleKeypress(e) {
+    if (e.keyCode === 13) {
+      searchGames();
+    }
+  }
+
   return (
     <form>
       <input
         className="gamesearch"
         onChange={getValue}
         placeholder="Search for a game"
+        onKeyPress={handleKeypress}
       ></input>
       <Button type="primary" onClick={searchGames}>
         Find me a deal!
