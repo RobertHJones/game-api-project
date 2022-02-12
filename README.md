@@ -1,6 +1,6 @@
 # Video Game Price Checker
 
-This app searches a range of sites to find the best price for any game, providing information about retail price, savings by %, and offering an alternative site for every game. This app uses the CheapShark API. Search for game in the search bar, select the game you want from the results by clicking on the image, and you're all set to start saving bundles of cash.
+This app searches a range of sites to find the best price for any game, providing information about retail price, savings by %, and offering an alternative site for every game. This app uses the CheapShark API. Upon reaching the site the user will be asked to log in and can then search for game in the search bar, select the game you want from the results by clicking on the image, and you're all set to start saving bundles of cash. You can log out at any time.
 
 ## Screenshots
 
@@ -38,10 +38,6 @@ This appears to be one of the quirks of the API.
 #### Why isn't the game for which I'm searching appearing?
 
 It's likely your game isn't appearing on any of the sites tracked by the API.
-
-#### Why isn't the app telling me where I can find a particular game?
-
-If there is no offer on the game, the app won't return a suggested site from which to purchase it.
 
 #### Can I use this app on my mobile?
 
