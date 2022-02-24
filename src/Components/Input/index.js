@@ -4,7 +4,7 @@ import { useState } from "react";
 import "antd/dist/antd.css";
 import { Button } from "antd";
 
-export default function Input({ onSubmit }) {
+export default function Input({ onSubmit, onKeyPress }) {
   const [game, setGame] = useState("");
 
   function getValue(e) {
@@ -18,19 +18,12 @@ export default function Input({ onSubmit }) {
     onSubmit(game);
   }
 
-  function handleKeypress(e) {
-    if (e.keyCode === 13) {
-      searchGames();
-    }
-  }
-
   return (
     <form>
       <input
         className="gamesearch"
         onChange={getValue}
         placeholder="Search for a game"
-        onKeyPress={handleKeypress}
       ></input>
       <Button type="primary" onClick={searchGames}>
         Find me a deal!

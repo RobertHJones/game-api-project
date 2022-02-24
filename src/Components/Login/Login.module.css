@@ -2,18 +2,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 400px;
   border-radius: 2px solid black;
   flex-wrap: nowrap;
-  display: block;
+  display: inline;
 }
 .header {
-  font-size: 4rem;
+  font-size: 2rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   display: block;
+  margin-top: 70%;
 }
 
 .button {
   transform: scale(2);
+}
+
+@media (min-width: 736px) {
+  .header {
+    font-size: 4rem;
+    margin-top: 1%;
+  }
+}
+
+@media (min-width: 736px) {
+  .loginPage {
+    display: block;
+    padding: 400px;
+  }
 }

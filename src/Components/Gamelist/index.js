@@ -81,6 +81,7 @@ export default function Gamelist({ text }) {
           <div>
             <h3 className="title">{item.external}</h3>
             <img
+              className="gameimages"
               onClick={handleClick}
               src={item.thumb}
               alt=""
@@ -97,7 +98,7 @@ export default function Gamelist({ text }) {
           {cheapestPrice}
           {saving}
         </p>
-        <p>
+        <p className="text">
           Click on the image to select your game and then click{" "}
           <Button type="primary" id="storebutton" onClick={getStore}>
             here
