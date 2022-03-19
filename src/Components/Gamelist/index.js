@@ -19,13 +19,14 @@ export default function Gamelist({ text }) {
   const [storeLink2, setStoreLink2] = useState("");
 
   async function handleClick(e) {
-    // console.log(e.target.id);
+    // take the id from the image
     let newId = e.target.id;
-
+    // make a new fetch request using this id to retrieve more detailed information from API
     const response = await fetch(
       `https://www.cheapshark.com/api/1.0/games?id=${newId}`
     );
     const data = await response.json();
+    // use the first five deals
     const array = data.deals.splice(0, 5);
     setGameProperties(array);
     setGamePrice(`Retail price: £${array[0].retailPrice}`);
@@ -64,6 +65,7 @@ export default function Gamelist({ text }) {
   }
 
   useEffect(() => {
+    // remove previous information on new search
     setStore("");
     setStore2("");
     setGamePrice("");
@@ -76,21 +78,27 @@ export default function Gamelist({ text }) {
 
   return (
     <div className="game-display">
-      {text.map((item) => {
-        return (
-          <div>
-            <h3 className="title">{item.external}</h3>
-            <img
-              className="gameimages"
-              onClick={handleClick}
-              src={item.thumb}
-              alt=""
-              id={item.gameID}
-            />
-            {/* <p>The current cheapest price is £{item.cheapest}</p> */}
-          </div>
-        );
-      })}
+      {text.length === 0 && (
+        <p className="title">No results - make a new search</p>
+      )}
+      {text.length > 0 &&
+        text.map((item) => {
+          // display the game names with their images
+          return (
+            <div>
+              <h3 className="title">{item.external}</h3>
+              <img
+                className="gameimages"
+                onClick={handleClick}
+                src={item.thumb}
+                alt=""
+                id={item.gameID} // put the id into the image so we can retrieve it on click
+              />
+              {/* <p>The current cheapest price is £{item.cheapest}</p> */}
+            </div>
+          );
+        })}{" "}
+      {/* after clicking the image, display further information about selected game */}
       <div className="gameinfo">
         <h3 className="price">{gamePrice}</h3>
         <p>
@@ -105,18 +113,8 @@ export default function Gamelist({ text }) {
           </Button>{" "}
           to unveil where to find this deal.
         </p>
-        <div>
-          {/* {store.storeName === "" ? (
-            <p>
-              `Find this deal at ${store.storeName}. Alternatively you could try
-              ${store2.storeName} where it costs £$
-              {gameProperties[1].price} - a saving of $
-              {Math.round(gameProperties[1].savings)}%.`
-            </p>
-          ) : (
-            <p></p>
-          )} */}
-        </div>
+        <div></div>
+        {/* after clicking the button display the information as to which store */}
         <p>
           {store}{" "}
           <a target="_blank" rel="noreferrer" href={link}>

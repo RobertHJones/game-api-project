@@ -12,6 +12,7 @@ const Login = () => {
   return (
     <div>
       {isAuthenticated ? (
+        // if user is logged in, show log out button
         <Button
           type="primary"
           onClick={() => logout({ returnTo: window.location.origin })}
@@ -20,6 +21,7 @@ const Login = () => {
           Log Out
         </Button>
       ) : (
+        // otherwise show the log in page
         <div className={loginPage}>
           <h1 className={header}>Please log in to access these deals</h1>
           <Button
