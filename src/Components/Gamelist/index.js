@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import "antd/dist/antd.css";
 import { Button } from "antd";
 
-export default function Gamelist({ text }) {
+export default function Gamelist({ text, error }) {
   const [gameProperties, setGameProperties] = useState("");
   const [gamePrice, setGamePrice] = useState("");
   const [cheapestPrice, setCheapestPrice] = useState("");
@@ -78,9 +78,7 @@ export default function Gamelist({ text }) {
 
   return (
     <div className="game-display">
-      {text.length === 0 && (
-        <p className="title">No results - make a new search</p>
-      )}
+      {text.length === 0 && <p className="title">{error}</p>}
       {text.length > 0 &&
         text.map((item) => {
           // display the game names with their images

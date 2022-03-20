@@ -8,6 +8,7 @@ import Login from "../Login";
 
 function App() {
   const [gameInfo, setGameInfo] = useState([]);
+  const [error, setError] = useState("");
   const { isAuthenticated } = useAuth0();
 
   async function fetchData(game) {
@@ -18,6 +19,8 @@ function App() {
     const data = await response.json();
     // display the first ten results
     setGameInfo(data.splice(0, 10));
+    // set message for if no results found
+    setError(`No results found for ${game}, please make another search`);
   }
 
   return (
@@ -27,7 +30,7 @@ function App() {
         <main>
           <Heading />
           <Input onSubmit={fetchData} />
-          <Gamelist text={gameInfo} key={gameInfo.gameID} />
+          <Gamelist text={gameInfo} error={error} key={gameInfo.gameID} />
           <Login />
         </main>
       ) : (
