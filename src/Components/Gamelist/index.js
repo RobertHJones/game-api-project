@@ -98,7 +98,7 @@ export default function Gamelist({ text, error }) {
         })}{" "}
       {/* after clicking the image, display further information about selected game */}
       <div className="gameinfo">
-        <h3 className="price">{gamePrice}</h3>
+        <h1 className="price">{gamePrice}</h1>
         <p>
           {title}
           {cheapestPrice}
