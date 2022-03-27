@@ -1,27 +1,29 @@
 img {
-  height: 70px;
+  height: 5rem;
   width: auto;
   border: 3px solid black;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 8rem;
+  margin-right: 8rem;
+  margin-bottom: 1rem;
 }
 
 .game-display {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .gameinfo {
   text-align: center;
-  margin: 100px;
+  margin: 7.5rem;
   font-size: 2.2rem;
 }
 
 .title {
   font-weight: bold;
   font-size: 1.1rem;
-  margin-top: 15px;
+  margin-top: 1rem;
 }
 
 .price {
@@ -34,7 +36,7 @@ img {
   height: 2rem;
   width: auto;
   font-size: 1.5rem;
-  padding-bottom: 42px;
+  padding-bottom: 2.8rem;
 }
 li {
   list-style: none;

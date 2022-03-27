@@ -111,7 +111,7 @@ export default function Gamelist({ text, error }) {
           </Button>{" "}
           to unveil where to find this deal.
         </p>
-        <div></div>
+
         {/* after clicking the button display the information as to which store */}
         <p>
           {store}{" "}
