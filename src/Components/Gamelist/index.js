@@ -35,6 +35,7 @@ export default function Gamelist({ text, error }) {
     setStoreID(array[0].storeID);
     setTitle("The current cheapest price for " + data.info.title);
     setStore("");
+    setStore2("");
     setStoreLink("");
     setStoreLink2("");
     setLink(`https://www.cheapshark.com/redirect?dealID=${array[0].dealID}`);

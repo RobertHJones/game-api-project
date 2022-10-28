@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      {isAuthenticated ? (
+      {/* {isAuthenticated ? (
         // conditionally render based on whether the user is logged in
         <main>
           <Heading />
@@ -35,7 +35,13 @@ function App() {
         </main>
       ) : (
         <Login />
-      )}
+      )} */}
+      <main>
+        <Heading />
+        <Input onSubmit={fetchData} />
+        <Gamelist text={gameInfo} error={error} key={gameInfo.gameID} />
+        {/* <Login /> */}
+      </main>
     </div>
   );
 }
